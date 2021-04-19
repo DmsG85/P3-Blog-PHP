@@ -1,0 +1,21 @@
+{
+    "name": "gaelle/blog",
+    "description": "un projet de blog avec PHP",
+    "type": "project",
+    "authors": [
+        {
+            "name": "DmsG85",
+            "email": "dmsgaelle@gmail.com"
+        }
+        
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "controller"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "twbs/bootstrap": "5.0.0-beta3"
+    }
+}
