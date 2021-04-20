@@ -103,15 +103,20 @@ class Controller
         $title = "Inscription";
         $description = "Inscription";
         $view = 'register';
+        $user = new Users;
+        // $register = $user->inscription("'test'","'lol@gmail.com'", "'lol'");
+        // var_dump ($register);
         require_once 'includes/header.php';
         require_once 'view/'.$view.'.php';
         require_once 'includes/footer.php';
     }
-    protected function postView()
+    protected function postView($url)
     {
         $title = "Article";
         $description = "Article";
         $view = 'postView';
+        $post = new Post;
+        $actu = $post->get_post($url[3]);
         require_once 'includes/header.php';
         require_once 'view/'.$view.'.php';
         require_once 'includes/footer.php';
