@@ -66,12 +66,12 @@
                                 </button>
                                                         </li>
 
-                        <li class="page-item"><a class="page-link" href="index.php?action=listPosts;page=1;postsPerPage=3#posts-list">1</a></li><li class="page-item"><a class="page-link" href="index.php?action=listPosts;page=2;postsPerPage=3#posts-list">2</a></li><li class="page-item"><a class="page-link" href="index.php?action=listPosts;page=3;postsPerPage=3#posts-list">3</a></li><li class="page-item"><a class="page-link" href="index.php?action=listPosts;page=4;postsPerPage=3#posts-list">4</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="index.php?action=listPosts&page=2;postsPerPage=3#posts-list" aria-label="Next">
+                        <li class="page-item"><a class="page-link" href="index.php?action=listPosts;page=1;postsPerPage=3#posts-list">1</a></li>
+                        <li class="page-item"><a class="page-link" href="index.php?action=listPosts;page=2;postsPerPage=3#posts-list">2</a></li>
+                        <li class="page-item"><a class="page-link" href="index.php?action=listPosts&page=2;postsPerPage=3#posts-list" aria-label="Next">
                              <span aria-hidden="true">&raquo;</span>
                               <span class="sr-only">Next</span>
-                            a</a>
+                            </a>
                         </li>
                         
                     </ul>

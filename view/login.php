@@ -24,11 +24,7 @@
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
             <h1 class="mx-auto mb-5 text-uppercase">Bienvenue !</h1>
-            <?php
-            if(isset ($error)){
-                echo "<p>".$error."</p>";
-            }
-            ?>
+            
             <h2 class="text-white-50 mx-auto mt-2 mb-3">Se connecter | <a href="register">S'inscrire</a></h2>
 
             

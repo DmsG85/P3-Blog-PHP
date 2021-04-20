@@ -33,16 +33,21 @@ public function loginuser(){
 }
 public function registeruser(){
 
-        if(isset($_POST["register"])&& $_POST["register"] === "ok") {
+        if(isset($_POST["register"])) {
                 $pseudo=$_POST["pseudo"];
                 $email=$_POST["email"];
                 $password=$_POST["password"];
+                $cpassword=$_POST["cpassword"];
                 var_dump($email);
                 var_dump($password);
                 var_dump($pseudo);
+                var_dump($cpassword);
                 $user=new Users;
-                $verif=$user->verifemail($email);
-                var_dump($verif);
+                // $verif=$user->verifemail($email);
+                // var_dump($verif);
+                if($password == $cpassword){
+
+                }else $return = "Les deux mots de passe ne correspondent pas.";
                 if ($verif != null){
                        if ($password===$verif["password"]){
                                 $_SESSION["register"]=$verif["idUser"];

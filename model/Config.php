@@ -28,6 +28,6 @@ abstract class Config {
     protected $userDate = "userDate";
     protected $userstable = "user";
     protected $iduser = "idUser";
-    
+    protected $cpassword = "cpassword";
 
 }

@@ -22,26 +22,14 @@
                 
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" name="confidentiality" id="confidentiality" required/>
-                    <label class="form-check-label text-white-50" for="confidentiality" >* J'ai lu et j'accepte la <a href="index.php?action=confidentiality"> Politique de confidentialité des données personnelles</a></label>
+                    <label class="form-check-label text-white-50" for="confidentiality" >* J'ai lu et j'accepte la <a href="#"> Politique de confidentialité des données personnelles</a></label>
                 </div>
                 
-                <button type="submit" class="btn btn-primary">S'inscrire</button>
+                <button type="submit" class="btn btn-primary" name="register" value='ok'>S'inscrire</button>
                 <p class="text-white-50">Vous avez déjà un compte ? <a href="login">Connectez-vous !</a></p>
 
             </form>
-            <?php 
-                // Vérification de la validité des informations
-
-                // Hachage du mot de passe
-                $pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-
-                // Insertion
-                $req = $bdd->prepare('INSERT INTO membres(pseudo, pass, email, date_inscription) VALUES(:pseudo, :pass, :email, CURDATE())');
-                $req->execute(array(
-                    'pseudo' => $pseudo,
-                    'pass' => $pass_hache,
-                    'email' => $email)); 
-            ?>
+            
         </div>
     </div>
 </div>
