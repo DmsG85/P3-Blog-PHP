@@ -3,13 +3,13 @@
     <div class="container d-flex h-100 align-items-end">
         <div class="mx-auto text-center">
             
-        <h1 class="mx-auto my-0 text-uppercase">Titre de l'article</h1>
+        <h1 class="mx-auto my-0 text-uppercase"><?php echo $actu[0]["title"] ?></h1>
             <div class="d-flex mt-4 align-items-center">
                 
                 <div class=" posts-informations" style="font-weight: bold">
-                    <p class="mb-0">Posté par <strong>Mathieu</strong></p>
-                    <p class="mb-0">le 22-03-2020 à 19h15</p>
-                    <p class="mb-0">Dernière modification le 22-03-2020 à 20h06</p>
+                    <p class="mb-0">Posté par <strong><?php echo $actu[0]["User_idUser"]; ?></strong></p>
+                    <p class="mb-0">Le <?php echo $actu[0]["dateCreation"]; ?></p>
+                    <p class="mb-0">Dernière modification le <?php echo $actu["dateUpdate"]; ?></p>
                 </div>
             </div>
         </div>
@@ -32,10 +32,10 @@
             <!-- Post  content -->
             <div class="post-content px-4 px-md-5 mb-5">
                
-                <h2 class="mb-4">Titre de l'article </h2>
+                <h2 class="mb-4"><?php echo $actu[0]["title"] ?> </h2>
                 <hr class="d-none d-lg-block mb-0 ml-0" />
 
-                <p>Châpo</p>
+                <p><?php echo $actu[0]["description"]; ?></p>
 
                  <div class="post-picture my-3" style="background-image: url('public/uploads/1584900905.9505_qg9zre8hcw.jpg');">     
                 </div>
@@ -46,8 +46,9 @@
             <div class="post-comments px-4 px-md-5 mb-5" id="comments-section">
                 <h2>Commentaires</h2>
                 <hr class="d-none d-lg-block ml-0">
+                <p><?php echo $actu[0]["userComment"]; ?></p>
 
-                <a href="login" class="btn btn-primary-custom my-4">Se connecter pour commenter</a>
+                <a href="login" class="btn btn-primary mx-auto">Se connecter pour commenter</a>
                 
 
                                     

@@ -33,7 +33,7 @@
                                 <h4 class="text-white"><?php echo $value["title"]; ?></h4>
                                 <p class="mb-3 text-white-50 text-justify"><?php echo $value["chapo"]; ?></p>
                                 <hr class="d-none d-lg-block mb-0 mr-0" />
-                                <a class="btn btn-primary " href="postView">Lire la suite...</a>
+                                <a class="btn btn-primary " href="postView/<?php echo $value['idPost'];?>">Lire la suite...</a>
                                 <!-- <span class="btn btn-outline-secondary mx-1 my-1">woman </span>-->
                             </div>
                         </div>
