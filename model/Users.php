@@ -30,8 +30,22 @@ class Users extends Database {
         $data=addslashes ($data);
         $data=htmlspecialchars ($data);
     }
-    
+    function inscription($pseudo,$email,$password){
+        $db = new Database();
+        $return = $db->insert(array($this->email=>$email, $this->pseudo=>$pseudo,$this->userpassword=>$password, $this->userStatut=>1),$this->userstable);
+        if ($return==null){
+            $return=false;
+        }
+        return $return;
+    }
 
+    function comment($idComment,$comment,$commentDate){
+        $db = new Database();
+        $return = $db->select(array($this->userComment=>$idComment, $this->comment=>$comment,$this->commentDate=>$commentDate));
+        if ($return==null){
+            $return=false;
+        }
+        return $return;
+    }
     
-
 }
