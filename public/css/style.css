@@ -278,7 +278,7 @@ caption{
   object-fit: cover;
 }
 /**** Page Blog ****/
-.post-chapo hr, .post-content hr, .post-comments hr{
+.post-chapo hr, .post-content hr, .post-comments hr, .recent-post hr{
   border-color: #f9b5a4;
   border-width: 0.25rem;
   width: 30%;
@@ -286,7 +286,7 @@ caption{
 /**** Media queries ****/
 
 @media (min-width: 992px){
-.projects-section .project-text hr {
+.projects-section .project-text hr{
   border-color: #f9b5a4;
   border-width: 0.25rem;
   width: 30%;

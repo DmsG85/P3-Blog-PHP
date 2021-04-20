@@ -27,7 +27,7 @@
             <?php
             if (isset ($error)){
                         
-                echo '<p class= "text-danger">'.$error.'</p>';
+                echo '<p class= "text-danger">'.'<strong>'.$error.'<strong>'.'</p>';
             }
             ?>
             <h2 class="text-white-50 mx-auto mt-2 mb-3">Se connecter | <a href="register">S'inscrire</a></h2>

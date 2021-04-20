@@ -7,11 +7,11 @@ public function loginuser(){
         if(isset($_POST["connexion"])&& $_POST["connexion"] === "ok") {
                 $email=$_POST["email"];
                 $password=$_POST["password"];
-                var_dump($email);
-                var_dump($password);
-                $user=new Users;
+                // var_dump($email);
+                // var_dump($password);
+                $user=new Users();
                 $verif=$user->verifemail($email);
-                var_dump($verif);
+                // var_dump($verif);
                 if ($verif != null){
                        if ($password===$verif["password"]){
                                 $_SESSION["login"]=$verif["idUser"];
@@ -31,41 +31,41 @@ public function loginuser(){
         }
         
 }
-// public function registeruser(){
-
-//         if(isset($_POST["register"])) {
-//                 $pseudo=$_POST["pseudo"];
-//                 $email=$_POST["email"];
-//                 $password=$_POST["password"];
-//                 $cpassword=$_POST["cpassword"];
-//                 var_dump($email);
-//                 var_dump($password);
-//                 var_dump($pseudo);
-//                 var_dump($cpassword);
-//                 $user=new Users;
-               
-//                 if($password === $cpassword){
-
-//                 }else{
-//                         $return = "Les deux mots de passe ne correspondent pas.";
-//                 } 
-//                 if ($verif != null){
-//                        if ($password===$verif["password"]){
-//                                 $_SESSION["register"]=$verif["idUser"];
-//                        }
-//                        else{
-//                                $error='mot de passe incorrecte';
-//                        }
-//                 }
-//                 else {
-//                         $error='adresse invalide';
-//                 }
-//                 if (isset ($error)){
-                        
-//                         return $error;
-//                 }
+ public function inscription(){
                 
-//         }
-// }
+        if(isset($_POST["register"])&& $_POST["register"] === "ok") {
+                $pseudo=$_POST["pseudo"];
+                $email=$_POST["email"];
+                $password=$_POST["password"];
+                $cpassword=$_POST["cpassword"];
+                //  var_dump($email);
+                //  var_dump($password);
+                //  var_dump($pseudo);
+                //  var_dump($cpassword);
+                
+                if($password === $cpassword){
+                        $user=new Users();
+                        if ($user->verifemail($email)==null){
+                              return $user->inscription($email,$pseudo, $password);
+                                
+                            }else{
+                                $error = "Email existe déjà";
+                            }
+                        
+
+                }else{
+                         $return = "Les deux mots de passe ne correspondent pas.";
+                } 
+                 
+                
+        }
+        else{
+                $error = "Vérifiez le pseudo";
+        }
+        if (isset ($error)){
+                        
+                return $error;
+        }
+ }
 }
 ?>

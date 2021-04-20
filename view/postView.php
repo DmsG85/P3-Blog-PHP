@@ -9,7 +9,8 @@
                 <div class=" posts-informations" style="font-weight: bold">
                     <p class="mb-0">Posté par <strong><?php echo $actu[0]["User_idUser"]; ?></strong></p>
                     <p class="mb-0">Le <?php echo $actu[0]["dateCreation"]; ?></p>
-                    <p class="mb-0">Dernière modification le <?php echo $actu["dateUpdate"]; ?></p>
+                    <p class="mb-0">Dernière modification le <?php echo $actu[0]["dateUpdate"]; ?></p>
+                    
                 </div>
             </div>
         </div>
@@ -37,8 +38,7 @@
 
                 <p><?php echo $actu[0]["description"]; ?></p>
 
-                 <div class="post-picture my-3" style="background-image: url('public/uploads/1584900905.9505_qg9zre8hcw.jpg');">     
-                </div>
+                
             </div>
 
             <!-- Comments section -->
@@ -62,26 +62,28 @@
 
         <div class="blog-right-col col-md-3 col-12 mx-auto px-4 pl-md-0 pr-md-4">
 
-            <div class="blog-right-col-div mb-3">
+            <!-- <div class="blog-right-col-div mb-3">
                 <h4 class="mb-4">Catégories</h4>
                     <div>
                         <a class="btn btn-outline-secondary" href="#">bonheur </a>
                     </div>
-            </div>
+            </div> -->
 
                            
 
             <div class="blog-right-col-div recent-posts mb-5">
-                <h4 class="mb-4">Articles récents</h4>
+                <h4 class="mb-4"> <strong>Articles récents</strong> </h4>
+                <hr class="d-none d-lg-block mb-0 mr-0" />
                 <div class="recent-post">
-                                            <h5>Cette génération qui change de vie <em> (posté le 22-03-2020)</em></h5>
-                        <p>De plus en plus de cadre, de t... - <a href="index.php?action=postView&amp;id=18">En savoir plus</a></p>
-
-                                            <h5>La taille des pierres<em> (posté le 22-03-2020)</em></h5>
-                        <p>Tailler des pierres c&#039;est... - <a href="index.php?action=postView&amp;id=17">En savoir plus</a></p>
-
-                                            <h5>Praesent ut ligula<em> (posté le 22-03-2020)</em></h5>
-                        <p>Etiam vitae tortor. Curabitur ... - <a href="index.php?action=postView&amp;id=16">En savoir plus</a></p>
+                        <h5>Femmes dans la tech, montrez-vous ! <em> (posté le 22-03-2020)</em></h5>
+                        <p>De plus en plus de cadre, de tout âge, changent d... - <a href="#"><strong> En savoir plus</strong></a></p>
+                        <hr class="d-none d-lg-block mb-0 mr-0" />
+                                                <h5>Mon chat me rend zen !<em> (posté le 22-03-2020)</em></h5>
+                        <p>C’est prouvé, le chat a un impact positif sur notre vie... - <a href="postView/2"><strong> En savoir plus</strong></a></p>
+                        <hr class="d-none d-lg-block mb-0 mr-0" />
+                                                <h5>Ma détente se nomme Warhammer 40k.<em> (posté le 22-03-2020)</em></h5>
+                        <p>Etiam vitae tortor. Curabitur blandit mollis lacus... - <a href="postView/3"> <strong> En savoir plus</strong></a></p>
+                        <hr class="d-none d-lg-block mb-0 mr-0" />
 
                                           
                 </div>

@@ -99,14 +99,18 @@
                 </form>
             </div>
             <div class="blog-right-col-div recent-posts mb-5">
-                <h4 class="mb-4">Articles récents</h4>
+                <h4 class="mb-4"> <strong> Articles récents</strong></h4>
+                <hr class="d-none d-lg-block mb-0 mr-0" />
                 <div class="recent-post">
                                             <h5>Femmes dans la tech, montrez-vous ! <em> (posté le 22-03-2020)</em></h5>
-                        <p>De plus en plus de cadre, de tout âge, changent d... - <a href="index.php?action=postView;id=1">En savoir plus</a></p>
+                        <p>De plus en plus de cadre, de tout âge, changent d... - <a href="postView/1"><strong> En savoir plus</strong></a></p>
+                        <hr class="d-none d-lg-block mb-0 mr-0" />
                                                 <h5>Mon chat me rend zen !<em> (posté le 22-03-2020)</em></h5>
-                        <p>C’est prouvé, le chat a un impact positif sur notre vie... - <a href="index.php?action=postView;id=2">En savoir plus</a></p>
+                        <p>C’est prouvé, le chat a un impact positif sur notre vie... - <a href="postView/2"><strong> En savoir plus</strong></a></p>
+                        <hr class="d-none d-lg-block mb-0 mr-0" />
                                                 <h5>Ma détente se nomme Warhammer 40k.<em> (posté le 22-03-2020)</em></h5>
-                        <p>Etiam vitae tortor. Curabitur blandit mollis lacus... - <a href="index.php?action=postView;id=3">En savoir plus</a></p>
+                        <p>Etiam vitae tortor. Curabitur blandit mollis lacus... - <a href="postView/3"> <strong> En savoir plus</strong></a></p>
+                        <hr class="d-none d-lg-block mb-0 mr-0" />
                                               
                 </div>
             </div>

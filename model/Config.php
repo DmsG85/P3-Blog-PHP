@@ -5,12 +5,12 @@
 */
 
 abstract class Config { 
-
+    //Database
 	protected $hostname = "localhost";
 	protected $username = "root";
 	protected $password = "";
 	protected $dbname = "myblog";
-
+    //Post
 	protected $poststable = "post";
     protected $postid = "idPost";
     protected $poststatut = "statut";
@@ -20,6 +20,7 @@ abstract class Config {
     protected $postpicture = "picture";
     protected $postdate = "dateCreation";
     protected $postupdate = "dateUpdate";
+    // Users
     protected $postuser = "User_idUser";
     protected $email = "email";
     protected $pseudo = "username";

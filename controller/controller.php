@@ -99,13 +99,14 @@ class Controller
         require_once 'includes/footer.php';
     }
     protected function register()
-    {
+    {   
+        
+        $connexion= new controllerConnexion();
+        $value=$connexion->inscription();
         $title = "Inscription";
         $description = "Inscription";
         $view = 'register';
-        $user = new Users;
-        // $register = $user->inscription("'test'","'lol@gmail.com'", "'lol'");
-        // var_dump ($register);
+        var_dump($value);
         require_once 'includes/header.php';
         require_once 'view/'.$view.'.php';
         require_once 'includes/footer.php';

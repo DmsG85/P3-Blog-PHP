@@ -99,7 +99,7 @@ class Database extends Config
 		}
 		$sql .= ")";
 		$result = self::$db->query($sql);
-		/*var_dump($sql);die;*/
+		// var_dump($sql);die;
 		return ($result == null || $result == "") ? null : self::$db->lastInsertId();
 	}
 	
@@ -146,4 +146,5 @@ class Database extends Config
 	function __destruct(){
 		self::$db = null;
 	}
+	
 }

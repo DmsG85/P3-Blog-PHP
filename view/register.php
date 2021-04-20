@@ -5,6 +5,12 @@
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
             <h1 class="mx-auto mb-3 text-uppercase">Bienvenue !</h1>
+            <?php
+            if (isset ($error)){
+                        
+                echo '<p class= "text-danger">'.'<strong>'.$error.'<strong>'.'</p>';
+            }
+            ?>
             <h2 class="text-white-50 mx-auto mt-2 mb-3"><a href="login">Se connecter</a> | S'inscrire</h2>
 
                         

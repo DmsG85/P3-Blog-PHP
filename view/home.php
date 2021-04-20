@@ -144,7 +144,7 @@
                     <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-            <a class="btn btn-primary" href="adminView">Admin</a>
+            <!-- <a class="btn btn-primary" href="adminView">Admin</a> -->
         </section>
        
         
