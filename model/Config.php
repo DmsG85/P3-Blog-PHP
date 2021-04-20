@@ -29,5 +29,9 @@ abstract class Config {
     protected $userstable = "user";
     protected $iduser = "idUser";
     protected $cpassword = "cpassword";
+    // Comment 
+    protected $idComment = "userComment";
+    protected $comment = "comment";
+    protected $commentDate = "commentDate";
 
 }
