@@ -86,17 +86,31 @@
                 <div class="row">
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
 
-                        <i class="far fa-paper-plane fa-2x mb-2 contact-title"></i>
-                        <h2 class="contact-title" >N'hésitez pas à me contacter !</h2>
+                        <i class="far fa-paper-plane fa-2x mb-2 contact-title">
+                        </i>
+                        <h2 class="contact-title" >
+                            N'hésitez pas à me contacter !
+                        </h2>
 
-                        
-                        <form method="POST" action="index.php?action=contactForm#contact-form" class="form-inline d-flex flex-column">
+                        <?php
+                            if (isset ($error)){
+                                        
+                                echo '<p class= "text-danger">'.'<strong>'.$error.'<strong>'.'</p>';
+                            }
+                        ?>
+                        <form method="POST"  class="form-inline d-flex flex-column">
+
                             <input type="text" name="name" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-4" id="contactName" placeholder="Votre nom" required/>
                 
-                            <input type="email" name="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-4" id="contactEmail" placeholder="Votre adresse email" required/>        
+                            <input type="email" name="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-4" id="contactEmail" placeholder="Votre adresse email" required/>  
+
                             <input type="text" name="subject" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-4" id="contactSubject" placeholder="Objet" required/>
+
                             <textarea name="content" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-4" id="contactMessage" placeholder="Votre message" required></textarea>
-                            <button type="submit" class="btn btn-primary">Envoyer</button>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                Envoyer
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -144,7 +158,7 @@
                     <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-            <!-- <a class="btn btn-primary" href="adminView">Admin</a> -->
+             <a class="btn btn-primary" href="adminView">Admin</a> 
         </section>
        
         

@@ -36,14 +36,28 @@
             <form method="POST" class="form-inline d-flex flex-column">
 
                <input type="email" name="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="email" placeholder="Votre email..." required>
+
                 <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="password" id="password" placeholder="Votre mot de passe..." required>
-                <a href="index.php?action=forgotPassView">J'ai oublié mon mot de passe...</a>
+
+                <a href="index.php?action=forgotPassView">
+                    J'ai oublié mon mot de passe...
+                </a>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" name="rememberme" id="rememberme" />
-                    <label class="form-check-label text-white-50" for="rememberme" >Se souvenir de moi</label>
+
+                    <label class="form-check-label text-white-50" for="rememberme" >
+                        Se souvenir de moi
+                    </label>
                 </div>
-                <button type="submit" class="btn btn-primary mx-auto" name="connexion" value='ok'>Se connecter</button>
-                <p class="text-white-50">Pas encore membre ? <a href="register">Je m'inscris !</a></p>
+                <button type="submit" class="btn btn-primary mx-auto" name="connexion" value='ok'>
+                    Se connecter
+                </button>
+                <p class="text-white-50"> <strong>
+                    Pas encore membre ? </strong>
+                    <a href="register">
+                        Je m'inscris !
+                    </a>
+                </p>
 
                 
             </form>

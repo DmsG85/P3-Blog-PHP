@@ -23,7 +23,6 @@ abstract class Config {
     // Users
     protected $postuser = "User_idUser";
     protected $email = "email";
-    protected $pseudo = "username";
     protected $userpassword = "password";
     protected $userStatut = "userStatut";
     protected $userDate = "userDate";

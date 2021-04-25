@@ -9,7 +9,13 @@ class Users  extends Database{
         // var_dump($email);
         // $email= $this->testinput($email);
         // var_dump($email);
-        $return = $db->select(array($this->userpassword, $this->iduser),array($this->userstable),array($this->email=>"'".$email."'"));
+        $return = $db->select(
+            array(
+                $this->userpassword, 
+                $this->iduser),
+                array($this->userstable)
+                ,array($this->email=>"'".$email."'")
+            );
         if ($return!=null){
             $return=$return[0];
         }else{
@@ -56,13 +62,5 @@ class Users  extends Database{
         return $return;
     }
 
-    public function comment($idComment,$comment,$commentDate){
-        $db = new Database();
-        $return = $db->select(array($this->idComment, $this->comment,$this->$commentDate));
-        if ($return==null){
-            $return=false;
-        }
-        return $return;
-    }
     
 }

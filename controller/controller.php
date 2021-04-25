@@ -106,7 +106,7 @@ class Controller
         $title = "Inscription";
         $description = "Inscription";
         $view = 'register';
-        var_dump($value);
+        // var_dump($value);
         require_once 'includes/header.php';
         require_once 'view/'.$view.'.php';
         require_once 'includes/footer.php';
@@ -128,7 +128,7 @@ class Controller
         $description = "Section Admin";
         $view = 'adminView';
         
-        require_once 'public/templates/startbootstrap-sb-admin-gh-pages/dist/index.html';
+        require_once 'public/templates/startbootstrap-sb-admin-gh-pages/dist/dashboard.php';
         require_once 'view/'.$view.'.php';
         
     }

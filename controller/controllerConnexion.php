@@ -40,8 +40,8 @@ public function loginuser(){
                 $cpassword=$_POST["cpassword"];
                 //  var_dump($email);
                 //  var_dump($password);
-                //  var_dump($pseudo);
-                //  var_dump($cpassword);
+                //   var_dump($pseudo);
+                //   var_dump($cpassword);
                 
                 if($password === $cpassword){
                         $user=new Users();
@@ -67,5 +67,40 @@ public function loginuser(){
                 return $error;
         }
  }
+
+//  public function contact(){
+                
+//         if(isset($_POST["home"])&& $_POST["home"] === "ok") {
+//                 $pseudo=$_POST["pseudo"];
+//                 $email=$_POST["email"];
+//                 $password=$_POST["password"];
+//                 $cpassword=$_POST["cpassword"];
+                
+                
+//                 if($password === $cpassword){
+//                         $user=new Users();
+//                         if ($user->verifemail($email)==null){
+//                               return $user->inscription($email,$pseudo, $password);
+                                
+//                             }else{
+//                                 $error = "Email existe déjà";
+//                             }
+                        
+
+//                 }else{
+//                          $return = "Les deux mots de passe ne correspondent pas.";
+//                 } 
+                 
+                
+//         }
+//         else{
+//                 $error = "Vérifiez le pseudo";
+//         }
+//         if (isset ($error)){
+                        
+//                 return $error;
+//         }
+//  }
+ 
 }
 ?>

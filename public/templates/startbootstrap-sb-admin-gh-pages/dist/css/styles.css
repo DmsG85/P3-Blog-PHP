@@ -8380,10 +8380,10 @@ button.bg-dark:focus {
     margin-bottom: 0 !important;
   }
 
-  .ml-md-0,
+  /* .ml-md-0,
 .mx-md-0 {
     margin-left: 0 !important;
-  }
+  } */
 
   .m-md-1 {
     margin: 0.25rem !important;

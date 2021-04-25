@@ -3,9 +3,15 @@
 <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
-                    <h1 class="mx-auto my-0 text-uppercase"> <strong>Bienvenue sur mon blog</strong> </h1>
-                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Actu,developpement, un peu de tout</h2>
-                    <a class="btn btn-primary js-scroll-trigger" href="#posts-list">En savoir plus</a>
+                    <h1 class="mx-auto my-0 text-uppercase"> 
+                        <strong>Bienvenue sur mon blog</strong> 
+                    </h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">
+                        Actu,developpement, un peu de tout
+                    </h2>
+                    <a class="btn btn-primary js-scroll-trigger" href="#posts-list">
+                        En savoir plus
+                    </a>
                 </div>
             </div>
         </header>
@@ -31,9 +37,13 @@
                                                                     
                             <div class="post-chapo col-md-8 col-12 text-center text-lg-left pl-md-4 pt-2 px-0">
                                 <h4 class="text-white"><?php echo $value["title"]; ?></h4>
-                                <p class="mb-3 text-white-50 text-justify"><?php echo $value["chapo"]; ?></p>
+                                <p class="mb-3 text-white-50 text-justify">
+                                    <?php echo $value["chapo"]; ?>
+                                </p>
                                 <hr class="d-none d-lg-block mb-0 mr-0" />
-                                <a class="btn btn-primary " href="postView/<?php echo $value['idPost'];?>">Lire la suite...</a>
+                                <a class="btn btn-primary " href="postView/<?php echo $value['idPost'];?>">
+                                Lire la suite...
+                                </a>
                                 <!-- <span class="btn btn-outline-secondary mx-1 my-1">woman </span>-->
                             </div>
                         </div>
@@ -42,9 +52,15 @@
                             <div class="avatar mr-3">
                             </div>
                             <div class="text-white-50 posts-informations">
-                                <p class="mb-0">Posté par <strong><?php echo $value["User_idUser"]; ?></strong> </p>
-                                <p class="mb-0"><?php echo $value["dateCreation"]; ?></p>
-                                <p class="mb-0">Dernière modification le <?php echo $value["dateUpdate"]; ?> </p>
+                                <p class="mb-0">
+                                    Posté par <strong><?php echo $value["User_idUser"]; ?></strong> 
+                                </p>
+                                <p class="mb-0">
+                                    <?php echo $value["dateCreation"]; ?>
+                                </p>
+                                <p class="mb-0">
+                                    Dernière modification le <?php echo $value["dateUpdate"]; ?> 
+                                </p>
                             </div>
                         </div>
                 </div>
@@ -66,9 +82,9 @@
                                 </button>
                                                         </li>
 
-                        <li class="page-item"><a class="page-link" href="index.php?action=listPosts;page=1;postsPerPage=3#posts-list">1</a></li>
-                        <li class="page-item"><a class="page-link" href="index.php?action=listPosts;page=2;postsPerPage=3#posts-list">2</a></li>
-                        <li class="page-item"><a class="page-link" href="index.php?action=listPosts&page=2;postsPerPage=3#posts-list" aria-label="Next">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#" aria-label="Next">
                              <span aria-hidden="true">&raquo;</span>
                               <span class="sr-only">Next</span>
                             </a>

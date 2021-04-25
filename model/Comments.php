@@ -2,21 +2,19 @@
 
 require_once 'Database.php';
 
-class Post extends Database { 
+class Comment extends Database { 
 
-    public function get_posts($type)
+   public function get_comments($type)
     {
         $db = new Database();
         $return = $db->select(
             array(
-                $this->postid, 
-                $this->postname, 
-                $this->postdesc, 
-                $this->postpicture, 
-                $this->postdate,
-                $this->chapo, 
-                $this->postupdate, 
-                $this->postuser 
+                $this->idComment, 
+                $this->comment, 
+                $this->commentDate, 
+                $this->postpicture,  
+                $this->postuser,
+                $this->idUser 
             ), 
             array(
                 $this->poststable
@@ -28,26 +26,27 @@ class Post extends Database {
         return $return;
     }
 
-    public function get_post($id)
+    public function get_comment($id)
     {
         $db = new Database();
         $return = $db->select(
             array(
-                $this->postid, 
-                $this->postname, 
-                $this->postdesc, 
+                $this->idComment, 
+                $this->comment, 
+                $this->commentDate, 
                 $this->postpicture, 
-                $this->postdate
+                $this->postdate,
+                $this->idUser
             ), 
                 array(
                     $this->poststable
                 ), array(
-                    $this->postid=>$id
+                    $this->idComment=>$id
                 ));
         return $return;
     }
 
-    public function add_post($type, $postpicture, $postname, $postdesc, $postdate)
+    public function add_comment($type, $comment, $commentDate, $postdate)
     {
         $db = new Database();
         $array = array(
@@ -55,11 +54,11 @@ class Post extends Database {
             $this->postdate => $postdate, 
             $this->posttype => $type
         );
-        if ($postname != "") {
-            $array[$this->postname]=$postname;
+        if ($comment != "") {
+            $array[$this->comment]=$comment;
         }
-        if ($postdesc != "") {
-            $array[$this->postdesc]=$postdesc;
+        if ($commentDate != "") {
+            $array[$this->commentDate]=$commentDate;
         }
         $return = $db->insert(
             $array, $this->poststable
@@ -67,12 +66,12 @@ class Post extends Database {
         return $return;
     }
 
-    public function update_post($id, $postpicture, $postname, $postdesc)
+    public function update_comment($id, $comment, $commentDate)
     {
         $db = new Database();
         $array = array();
-        $array[$this->postname]=$postname;
-        $array[$this->postdesc]=$postdesc;
+        $array[$this->comment]=$comment;
+        $array[$this->commentDate]=$commentDate;
         if ($postpicture != null) {
             $array[$this->postpicture]=$postpicture;
         }
@@ -80,18 +79,18 @@ class Post extends Database {
             $array, 
             $this->poststable, 
             array(
-                $this->postid => $id
+                $this->idComment => $id
             ));
         return $return;
     }
 
-    public function delete_post($id)
+    public function delete_comment($id)
     {
         $db = new Database();
         $return = $db->delete(
             $this->poststable, 
             array(
-                $this->postid => $id
+                $this->idComment => $id
             ));
         return $return;
     }
