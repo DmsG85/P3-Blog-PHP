@@ -106,7 +106,7 @@
 
                             <input type="text" name="subject" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-4" id="contactSubject" placeholder="Objet" required/>
 
-                            <textarea name="content" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-4" id="contactMessage" placeholder="Votre message" required></textarea>
+                            <textarea name="message" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-4" id="contactMessage" placeholder="Votre message" required></textarea>
                             
                             <button type="submit" class="btn btn-primary">
                                 Envoyer
@@ -115,7 +115,7 @@
                     </div>
                 </div>
             </div>
-
+               
         </section>
         <!-- Contact-->
         <section class="contact-section bg-black">
@@ -158,7 +158,7 @@
                     <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-             <a class="btn btn-primary" href="adminView">Admin</a> 
+            
         </section>
        
         

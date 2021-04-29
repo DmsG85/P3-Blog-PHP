@@ -42,7 +42,13 @@ class Controller
                 break; 
             case 'adminView' :
                 $this->adminView($url);
-                break;                   
+                break;
+            case 'editView' :
+                $this->editView($url);
+                break;
+            case 'commentsView' :
+                $this->commentsView($url);
+                break;                           
             default:
                 $this->notFound();
                 break;
@@ -93,7 +99,7 @@ class Controller
         $view = 'listPosts';
         $post = new Post;
         $actus = $post->get_posts(2);
-        // var_dump($actus);
+        // var_dump($post);
         require_once 'includes/header.php';
         require_once 'view/'.$view.'.php';
         require_once 'includes/footer.php';
@@ -127,9 +133,30 @@ class Controller
         $title = "Section Admin";
         $description = "Section Admin";
         $view = 'adminView';
-        
-        require_once 'public/templates/startbootstrap-sb-admin-gh-pages/dist/dashboard.php';
+       
+        require_once 'includes/headerAdmin.php';
         require_once 'view/'.$view.'.php';
+        require_once 'includes/footerAdmin.php';
+        
+    }
+    protected function editView()
+    {
+        $title = "Editer/Modifier";
+        $description = "Editer/Modifier";
+        $view = 'editView';
+        require_once 'includes/headerAdmin.php';
+        require_once 'view/'.$view.'.php';
+        require_once 'includes/footerAdmin.php';
+        
+    }
+    protected function commentsView()
+    {
+        $title = "Commentaires";
+        $description = "Commentaires";
+        $view = 'commentsView';
+        require_once 'includes/headerAdmin.php';
+        require_once 'view/'.$view.'.php';
+        require_once 'includes/footerAdmin.php';
         
     }
 }

@@ -36,7 +36,9 @@ class Post extends Database {
                 $this->postid, 
                 $this->postname, 
                 $this->postdesc, 
-                $this->postpicture, 
+                $this->postpicture,
+                $this->postupdate,
+                $this->postuser,
                 $this->postdate
             ), 
                 array(

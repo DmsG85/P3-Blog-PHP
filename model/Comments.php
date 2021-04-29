@@ -11,10 +11,10 @@ class Comment extends Database {
             array(
                 $this->idComment, 
                 $this->comment, 
-                $this->commentDate, 
-                $this->postpicture,  
+                $this->commentDate,   
                 $this->postuser,
-                $this->idUser 
+                $this->postid,
+                $this->iduser 
             ), 
             array(
                 $this->poststable
@@ -33,15 +33,16 @@ class Comment extends Database {
             array(
                 $this->idComment, 
                 $this->comment, 
-                $this->commentDate, 
-                $this->postpicture, 
+                $this->commentDate,  
                 $this->postdate,
-                $this->idUser
+                $this->postid,
+                $this->iduser
+                
             ), 
                 array(
                     $this->poststable
                 ), array(
-                    $this->idComment=>$id
+                    $this->postid=>$id
                 ));
         return $return;
     }
@@ -50,7 +51,7 @@ class Comment extends Database {
     {
         $db = new Database();
         $array = array(
-            $this->postpicture => $postpicture, 
+            
             $this->postdate => $postdate, 
             $this->posttype => $type
         );
@@ -79,7 +80,7 @@ class Comment extends Database {
             $array, 
             $this->poststable, 
             array(
-                $this->idComment => $id
+                $this->postid=> $id
             ));
         return $return;
     }
@@ -90,7 +91,7 @@ class Comment extends Database {
         $return = $db->delete(
             $this->poststable, 
             array(
-                $this->idComment => $id
+                $this->postid=> $id
             ));
         return $return;
     }

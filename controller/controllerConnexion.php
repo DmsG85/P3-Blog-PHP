@@ -11,10 +11,16 @@ public function loginuser(){
                 // var_dump($password);
                 $user=new Users();
                 $verif=$user->verifemail($email);
+                // $verif=$user->verifstatut($userStatut);
                 // var_dump($verif);
+        
                 if ($verif != null){
                        if ($password===$verif["password"]){
                                 $_SESSION["login"]=$verif["idUser"];
+                                $_SESSION["admin"]=$verif["userStatut"];
+                               if($verif['userStatut']==='2'){
+                                  header('Location: '.$this->rewritebase. 'adminView');     
+                               } 
                        }
                        else{
                                $error='Votre mot de passe est incorrecte, veuillez recommencer.';
@@ -23,12 +29,13 @@ public function loginuser(){
                 else {
                         $error='Votre adresse est invalide, veuillez recommencer.';
                 }
-                if (isset ($error)){
-                        
+                if (isset ($error)){   
                         return $error;
                 }
+                return true;
                 
         }
+        return false;
         
 }
  public function inscription(){
@@ -38,10 +45,10 @@ public function loginuser(){
                 $email=$_POST["email"];
                 $password=$_POST["password"];
                 $cpassword=$_POST["cpassword"];
-                //  var_dump($email);
-                //  var_dump($password);
-                //   var_dump($pseudo);
-                //   var_dump($cpassword);
+                // var_dump($email);
+                // var_dump($password);
+                // var_dump($pseudo);
+                // var_dump($cpassword);
                 
                 if($password === $cpassword){
                         $user=new Users();
@@ -69,38 +76,20 @@ public function loginuser(){
  }
 
 //  public function contact(){
-                
-//         if(isset($_POST["home"])&& $_POST["home"] === "ok") {
-//                 $pseudo=$_POST["pseudo"];
-//                 $email=$_POST["email"];
-//                 $password=$_POST["password"];
-//                 $cpassword=$_POST["cpassword"];
-                
-                
-//                 if($password === $cpassword){
-//                         $user=new Users();
-//                         if ($user->verifemail($email)==null){
-//                               return $user->inscription($email,$pseudo, $password);
-                                
-//                             }else{
-//                                 $error = "Email existe déjà";
-//                             }
-                        
-
-//                 }else{
-//                          $return = "Les deux mots de passe ne correspondent pas.";
-//                 } 
-                 
-                
+//         if(isset($_POST["contact"])&& $_POST["contact"] === "ok"){
+//                 $name = $_POST['name'];
+//                 $email = $_POST['email'];
+//                 $message = $_POST['message'];
+//                 $formcontent="From: $name \n Message: $message";
+//                 $recipient = "dmsgaelle@gmail.com";
+//                 $subject = "Contact Form";
+//                 $mailheader = "From: $email \r\n";
 //         }
-//         else{
-//                 $error = "Vérifiez le pseudo";
-//         }
-//         if (isset ($error)){
-                        
-//                 return $error;
-//         }
+        
+//         mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
+//         echo "Thank You!";
 //  }
+
  
 }
 ?>

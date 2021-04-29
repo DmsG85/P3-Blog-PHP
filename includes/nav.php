@@ -10,10 +10,31 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?php echo $this->rewritebase;?>#about">A propos</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?php echo $this->rewritebase;?>listPosts">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?php echo $this->rewritebase;?>#contact-form">Contactez-moi</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?php echo $this->rewritebase;?>login" target="_blank">Connexion</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="<?php echo $this->rewritebase;?>#about">
+                            A propos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="<?php echo $this->rewritebase;?>listPosts">
+                            Blog
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="<?php echo $this->rewritebase;?>#contact-form">
+                            Contactez-moi
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="<?php echo $this->rewritebase;?>login" target="_blank">
+                            Connexion
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="<?php echo $this->rewritebase;?>adminView" target="_blank">
+                            Dashboard
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

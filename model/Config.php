@@ -29,6 +29,7 @@ abstract class Config {
     protected $userstable = "user";
     protected $iduser = "idUser";
     protected $cpassword = "cpassword";
+    protected $pseudo = "pseudo";
     // Comment 
     protected $idComment = "userComment";
     protected $comment = "comment";

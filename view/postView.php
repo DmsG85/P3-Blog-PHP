@@ -21,7 +21,7 @@
                         Le <?php echo $actu[0]["dateCreation"]; ?>
                     </p>
                     <p class="mb-0">
-                        Dernière modification le <?php echo $actu[0]["dateUpdate"]; ?>
+                        Dernière modification le <?= $actu[0]["dateUpdate"];?>
                     </p>
                     
                 </div>
@@ -56,23 +56,40 @@
             </div>
 
             <!-- Comments section -->
-
+            
             <div class="post-comments px-4 px-md-5 mb-5" id="comments-section">
+            
                 <h2>Commentaires</h2>
                 <hr class="d-none d-lg-block ml-0">
+                <?php
+                    foreach ($actus as $value){ ?>
                 <p>
                     Posté par <?php echo $actu[0]["userComment"]; ?>
                     <?php echo $actu[0]["comment"]; ?>
                     Le<?php echo $actu[0]["commentDate"]; ?>
                 </p>
+                <?php
 
-                <a href="login" class="btn btn-primary mx-auto">Se connecter pour commenter</a>
-                
+                }
+                ?>
+                <a href="/mvc/login" class="btn btn-primary mx-auto">
+                    Se connecter pour commenter
+                </a>
 
+                <div class="input-group">
+
+                    <span class="input-group-text">
+                        Votre commentaire
+                    </span>
+                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                        Valider
+                    </button>
+                </div>
                                     
-                
+               
             </div>         
-
+            
         </div>
 
 
