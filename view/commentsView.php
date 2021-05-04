@@ -20,11 +20,12 @@
               </tr>
             </thead>
             <tbody>
-            
+            <?php foreach ($commentsView as $comment){ ?>
+           
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><?php echo $comment[0]["idComment"]; ?></td>
+                <td><?php echo $comment[0]["comment"]; ?></td>
+                <td><?php echo $comment[0]["commentDate"]; ?></td>
                 <td></td>
                 <td></td>
                 <td>
@@ -37,7 +38,9 @@
 
                 </td>
               </tr>
-           
+              <?php 
+            } 
+            ?>
             </tbody>
             </table>
         </div>

@@ -25,9 +25,12 @@
                                         </thead>
                                         
                                         <tbody>
+                                        <?php
+                                        foreach ($posts as $value):
+                                            ?>
                                             <tr>
-                                                <td>Femmes dans la tech, montrez-vous !</td>
-                                                <td>Les femmes représentent 28 % des effectifs en école d’ingénieur...</td>
+                                                <td><?php echo $value[0]["title"]; ?></td>
+                                                <td><?php echo $actu[0]["chapo"]; ?></td>
                                                 <td>2021-04-01 14:13:37</td>
                                                 <td>2021-04-02 14:13:37
                                                 </td>
@@ -131,7 +134,7 @@
                                                 </a>
                                                 </td>
                                             </tr>
-                                 
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                     <p><i class="fas fa-pen-alt"></i> = Modifier</p>   

@@ -5,8 +5,8 @@ class controllerConnexion{
 
 public function loginuser(){
         if(isset($_POST["connexion"])&& $_POST["connexion"] === "ok") {
-                $email=$_POST["email"];
-                $password=$_POST["password"];
+                $email = $_POST["email"];
+                $password = $_POST["password"];
                 // var_dump($email);
                 // var_dump($password);
                 $user=new Users();
@@ -41,10 +41,10 @@ public function loginuser(){
  public function inscription(){
                 
         if(isset($_POST["register"])&& $_POST["register"] === "ok") {
-                $pseudo=$_POST["pseudo"];
-                $email=$_POST["email"];
-                $password=$_POST["password"];
-                $cpassword=$_POST["cpassword"];
+                $pseudo = $_POST["pseudo"];
+                $email = $_POST["email"];
+                $password = $_POST["password"];
+                $cpassword = $_POST["cpassword"];
                 // var_dump($email);
                 // var_dump($password);
                 // var_dump($pseudo);
@@ -75,21 +75,20 @@ public function loginuser(){
         }
  }
 
-//  public function contact(){
-//         if(isset($_POST["contact"])&& $_POST["contact"] === "ok"){
-//                 $name = $_POST['name'];
-//                 $email = $_POST['email'];
-//                 $message = $_POST['message'];
-//                 $formcontent="From: $name \n Message: $message";
-//                 $recipient = "dmsgaelle@gmail.com";
-//                 $subject = "Contact Form";
-//                 $mailheader = "From: $email \r\n";
-//         }
+ public function contact(){
+                
         
-//         mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
-//         echo "Thank You!";
-//  }
+        if (isset($_POST["contact"]) && $_POST["contact"] === "ok") {
+        
+                $name = $_POST["name"]; 
+                $email = $_POST["email"];
+                $subject = $_POST["subject"];
+                $message = $_POST["message"];
 
- 
+       
+        }
+
+
+ }
 }
 ?>

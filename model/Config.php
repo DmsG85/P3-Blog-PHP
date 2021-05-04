@@ -31,8 +31,16 @@ abstract class Config {
     protected $cpassword = "cpassword";
     protected $pseudo = "pseudo";
     // Comment 
-    protected $idComment = "userComment";
+    protected $commentstable = "comment";
+    protected $idComment = "idComment";
     protected $comment = "comment";
     protected $commentDate = "commentDate";
+    protected $commentstatut = "statut";
+    protected $commentpostid = "Post_idPost";
+    protected $commentpostuserid ="Post_User_idUser";
+    protected $commentuser = "User_idUser";
+
+
+
 
 }

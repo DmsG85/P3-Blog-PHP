@@ -3,6 +3,7 @@
 require_once './model/Posts.php';
 require_once 'controllerConnexion.php';
 require_once './model/Users.php';
+require_once './model/Comments.php';
 /**
 * Controller
 */
@@ -48,7 +49,10 @@ class Controller
                 break;
             case 'commentsView' :
                 $this->commentsView($url);
-                break;                           
+                break;
+            case 'addpostView' :
+                $this->addpostView($url);
+                break;                             
             default:
                 $this->notFound();
                 break;
@@ -58,9 +62,11 @@ class Controller
 
     protected function home($url)
     {
+        // $connexion= new controllerConnexion();
         $title = "Gaëlle Dumas";
         $description = "Accueil";
         $view = 'home';
+        // $value=$connexion->contact();
         // $post = new Post;
         // $actus = $post->get_posts(1);
         require_once 'includes/header.php';
@@ -154,10 +160,22 @@ class Controller
         $title = "Commentaires";
         $description = "Commentaires";
         $view = 'commentsView';
+        $comment = new Comment;
+        $commentsView = $comment->get_comments();
+        // var_dump($commentsView);die;
         require_once 'includes/headerAdmin.php';
         require_once 'view/'.$view.'.php';
         require_once 'includes/footerAdmin.php';
+    }
+    protected function addpostView()
+    {
+        $title = "Ajout d'un post";
+        $description = "Ajout d'un post";
+        $view = 'addpostView';
         
+        require_once 'includes/headerAdmin.php';
+        require_once 'view/'.$view.'.php';
+        require_once 'includes/footerAdmin.php';
     }
 }
 

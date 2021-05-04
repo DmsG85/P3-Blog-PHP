@@ -4,24 +4,32 @@ require_once 'Database.php';
 
 class Comment extends Database { 
 
-   public function get_comments($type)
+   public function get_comments($type=null)
     {
         $db = new Database();
-        $return = $db->select(
-            array(
-                $this->idComment, 
-                $this->comment, 
-                $this->commentDate,   
-                $this->postuser,
-                $this->postid,
-                $this->iduser 
-            ), 
-            array(
-                $this->poststable
-            ), 
-            array(
-                $this->poststatut=>$type
-            ));
+        $fields = array(
+            $this->idComment, 
+            $this->comment, 
+            $this->commentDate,
+            $this->commentstatut,
+            $this->commentpostuserid,
+            $this->commentpostid,
+            $this->commentuser 
+        );
+        $from = array(
+            $this->commentstable
+        );
+
+        if (isset($type)) {
+            $return = $db->select(
+                $fields, 
+                $from, 
+                array(
+                    $this->commentstatut=>$type
+                ));
+        } else {
+            $return = $db->select($fields, $from);
+        }
         
         return $return;
     }
@@ -40,7 +48,7 @@ class Comment extends Database {
                 
             ), 
                 array(
-                    $this->poststable
+                    $this->commentstable
                 ), array(
                     $this->postid=>$id
                 ));
@@ -62,7 +70,7 @@ class Comment extends Database {
             $array[$this->commentDate]=$commentDate;
         }
         $return = $db->insert(
-            $array, $this->poststable
+            $array, $this->commentstable
         );
         return $return;
     }
@@ -78,7 +86,7 @@ class Comment extends Database {
         }
         $return = $db->update(
             $array, 
-            $this->poststable, 
+            $this->commentstable, 
             array(
                 $this->postid=> $id
             ));
@@ -89,7 +97,7 @@ class Comment extends Database {
     {
         $db = new Database();
         $return = $db->delete(
-            $this->poststable, 
+            $this->commentstable, 
             array(
                 $this->postid=> $id
             ));

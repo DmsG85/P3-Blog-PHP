@@ -51,6 +51,7 @@
                                     <a class="nav-link" href="editView">Editer/Modifier</a>
                                     <a class="nav-link" href="adminView">Listes des posts</a>
                                     <a class="nav-link" href="commentsView">Listes des commentaires</a>
+                                    <a class="nav-link" href="addpostView">Ajouter un post</a>
                                 </nav>
                             </div>
                             
