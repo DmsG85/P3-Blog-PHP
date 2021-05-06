@@ -69,68 +69,7 @@
 
         }
         ?>
-   
-            <!-- Post list navigation -->
-
-            <div class="row container justify-content-center mt-5">
-                <nav aria-label="post-navigation">
-                    <ul class="pagination post-pagination">
-                        <li class="page-item">
-                                                            <button class="page-link" disabled aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
-                                </button>
-                                                        </li>
-
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#" aria-label="Next">
-                             <span aria-hidden="true">&raquo;</span>
-                              <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                        
-                    </ul>
-                </nav>
-            </div>
-            
-
-        </div>
-
-        <!-- Right column -->
-
-        <div class="blog-right-col col-lg-3 col-sm-10 pl-0 mx-auto">
-            <div class="blog-right-col-div nb-posts mb-5">
-                <h4 class="mb-4">Nombre de posts par page</h4>
-                <form action="index.php#posts-list" method="GET">
-                    <input type="hidden" name="action" value="listPosts"/>
-                    <label for="postsPerPage" hidden>Nombre de posts par page</label>
-                    <select class="form-control block" id="postsPerPage" name="postsPerPage">
-                                                    <option value="3" selected disabled>3</option>
-                            <option value="5">5</option>
-                            <option value="10">10</option>
-                            
-                    </select>
-                    <input class="btn btn-primary-custom mt-3" type="submit" value="Afficher"/>
-                </form>
-            </div>
-            <div class="blog-right-col-div recent-posts mb-5">
-                <h4 class="mb-4"> <strong> Articles récents</strong></h4>
-                <hr class="d-none d-lg-block mb-0 mr-0" />
-                <div class="recent-post">
-                                            <h5>Femmes dans la tech, montrez-vous ! <em> (posté le 22-03-2020)</em></h5>
-                        <p>De plus en plus de cadre, de tout âge, changent d... - <a href="postView/1"><strong> En savoir plus</strong></a></p>
-                        <hr class="d-none d-lg-block mb-0 mr-0" />
-                                                <h5>Mon chat me rend zen !<em> (posté le 22-03-2020)</em></h5>
-                        <p>C’est prouvé, le chat a un impact positif sur notre vie... - <a href="postView/2"><strong> En savoir plus</strong></a></p>
-                        <hr class="d-none d-lg-block mb-0 mr-0" />
-                                                <h5>Ma détente se nomme Warhammer 40k.<em> (posté le 22-03-2020)</em></h5>
-                        <p>Etiam vitae tortor. Curabitur blandit mollis lacus... - <a href="postView/3"> <strong> En savoir plus</strong></a></p>
-                        <hr class="d-none d-lg-block mb-0 mr-0" />
-                                              
-                </div>
-            </div>
-        </div>
+ 
     </div>
 
 

@@ -39,9 +39,6 @@
 
                 <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="password" id="password" placeholder="Votre mot de passe..." required>
 
-                <a href="index.php?action=forgotPassView">
-                    J'ai oublié mon mot de passe...
-                </a>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" name="rememberme" id="rememberme" />
 
