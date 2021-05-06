@@ -2,7 +2,7 @@
 
 require_once 'Database.php';
 
-class Users  extends Database{ 
+class Users extends Database{ 
     
     public function verifemail($email){
         $db = new Database();
@@ -13,44 +13,43 @@ class Users  extends Database{
             array(
                 $this->userpassword, 
                 $this->iduser,
-                $this->userStatut
-
+                $this->pseudo, 
+                $this->email,
+                $this->userStatut,
             ),
-                array(
-                    $this->userstable
-                    )
-                ,array(
-                    $this->email=>"'".$email."'"
-                    )
-            );
-        if ($return!=null){
-            $return=$return[0];
-        }else{
-            $return=null;
-        }
-        return $return;
+            array($this->userstable),
+            array($this->email=>$email)
+        );
 
+        if ($return == null || empty($return)){
+            return null;
+        } else {
+            return current($return);
+        }
     }
 
-    public function get_post($id)
+    public function get_user($id)
     {
         $db = new Database();
         $return = $db->select(
             array(
-                $this->postid, 
-                $this->postname, 
-                $this->postdesc, 
-                $this->postpicture, 
-                $this->postdate,
-                $this->postuser
+                $this->iduser, 
+                $this->pseudo, 
+                $this->email, 
+                $this->userStatut,
+                $this->userDate,
             ), 
-                array(
-                    $this->poststable
-                ), array(
-                    $this->postid=>$id
-                ));
-        return $return;
+            array($this->userstable),
+            array($this->iduser=>$id)
+        );
+        
+        if ($return == null || empty($return)){
+            return null;
+        } else {
+            return current($return);
+        }
     }
+
     public function testinput($data){
         
         $data=trim ($data);
@@ -58,45 +57,25 @@ class Users  extends Database{
         $data=htmlspecialchars ($data);
         return $data;
     }
-    public function inscription($email,$pseudo,$password){
-        
-        
+
+    public function inscription($email,$pseudo,$password)
+    {
         $db = new Database();
         $return = $db->insert(
             array(
-                $this->email=>"'".$email."'", 
-                $this->pseudo=>"'".$pseudo."'",
-                $this->userpassword=>"'".$password."'", 
+                $this->email=>$email, 
+                $this->pseudo=>$pseudo,
+                $this->userpassword=>$password,
+                $this->userDate=>date("Y-m-d H:i:s"), 
                 $this->userStatut=>1
             ),
                 $this->userstable
             );
-        if (
-            $return==null
-            ){
-            $return=false;
+
+            // var_dump($return);
+        if ($return == null){
+            return false;
         }
         return $return;
     }
-    public function get_comment($id)
-    {
-        $db = new Database();
-        $return = $db->select(
-            array(
-                $this->postid, 
-                $this->idComment, 
-                $this->comment, 
-                $this->commentDate, 
-                $this->postuser
-                
-            ), 
-                array(
-                    $this->poststable
-                ), array(
-                    $this->postid=>$id
-                ));
-        return $return;
-    }
-   
-    
 }

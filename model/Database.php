@@ -12,7 +12,7 @@ class Database extends Config
 	function __construct() {
 		if ( null == self::$db ) { 
 			try { 
-				self::$db = new PDO( "mysql:host=".$this->hostname.";"."dbname=".$this->dbname, $this->username, $this->password); 
+				self::$db = new PDO( "mysql:host=".$this->hostname.";"."dbname=".$this->dbname.";charset=UTF8", $this->username, $this->password); 
 			}
 			catch(PDOException $e) { 
 				die($e->getMessage()); 
@@ -45,7 +45,7 @@ class Database extends Config
 		if(!empty($where)) {
 			$i = 1;
 			foreach($where as $key => $value) {
-				$sql .= "`".$key."` = ".$value;
+				$sql .= "`".$key."` = ".self::$db->quote($value);
 				if (count($where) != $i) {
 					$sql .= " AND ";
 				}
@@ -73,7 +73,7 @@ class Database extends Config
 		$sql .= " LIMIT ".$limit;
 		
 		$result = self::$db->query($sql);
-		// var_dump($sql);die; 
+		// var_dump($sql);
 		return ($result == null || $result == "") ? null : $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -91,7 +91,7 @@ class Database extends Config
 		$sql .= ") VALUES (";
 		$i = 1;
 		foreach($insert as $key => $value){
-			$sql .= $value;
+			$sql .= self::$db->quote($value);
 			if (count($insert) != $i) {
 				$sql .= " , ";
 			}
@@ -108,7 +108,7 @@ class Database extends Config
 		$sql = "UPDATE `".$table."` SET ";
 		$i = 1;
 		foreach($update as $key => $value){
-			$sql .= "`".$key."` = ".$value;
+			$sql .= "`".$key."` = ".self::$db->quote($value);
 			if (count($update) != $i) {
 				$sql .= " , ";
 			}

@@ -4,10 +4,10 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="description" content="<?php echo $description;?>"  />
+        <meta name="author" content="<?php echo $this->author;?>" />
         <title>Dashboard - Admin</title>
-        <link href="./public/templates/startbootstrap-sb-admin-gh-pages/dist/css/styles.css" rel="stylesheet" />
+        <link href="<?php echo $this->rewritebase;?>/public/templates/startbootstrap-sb-admin-gh-pages/dist/css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -26,7 +26,7 @@
                                 Activity Log
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="./login"  onclick="return confirm('Cette action vous déconnectera. Êtes vous sûr ?')">
+                            <a class="dropdown-item" href="<?php echo $this->rewritebase;?>/logout"  onclick="return confirm('Cette action vous déconnectera. Êtes vous sûr ?')">
                                 Logout
                             </a>
                         </div>
@@ -48,10 +48,9 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="editView">Editer/Modifier</a>
-                                    <a class="nav-link" href="adminView">Listes des posts</a>
-                                    <a class="nav-link" href="commentsView">Listes des commentaires</a>
-                                    <a class="nav-link" href="addpostView">Ajouter un post</a>
+                                    <a class="nav-link" href="<?php echo $this->rewritebase;?>admin/postEdit">Ajouter un post</a>
+                                    <a class="nav-link" href="<?php echo $this->rewritebase;?>admin/postList">Listes des posts</a>
+                                    <a class="nav-link" href="<?php echo $this->rewritebase;?>admin/commentList">Listes des commentaires</a>
                                 </nav>
                             </div>
                             

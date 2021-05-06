@@ -41,7 +41,7 @@
                                     <?php echo $value["chapo"]; ?>
                                 </p>
                                 <hr class="d-none d-lg-block mb-0 mr-0" />
-                                <a class="btn btn-primary " href="postView/<?php echo $value['idPost'];?>">
+                                <a class="btn btn-primary " href="<?php echo $this->rewritebase;?>postView/<?php echo $value['idPost'];?>">
                                 Lire la suite...
                                 </a>
                                 <!-- <span class="btn btn-outline-secondary mx-1 my-1">woman </span>-->
@@ -53,7 +53,7 @@
                             </div>
                             <div class="text-white-50 posts-informations">
                                 <p class="mb-0">
-                                    Posté par <strong><?php echo $value["User_idUser"]; ?></strong> 
+                                    Posté par <strong><?php echo $value["user"]['username']; ?></strong> 
                                 </p>
                                 <p class="mb-0">
                                     <?php echo $value["dateCreation"]; ?>

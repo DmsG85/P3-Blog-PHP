@@ -7,7 +7,6 @@
             <h1 class="mx-auto mb-3 text-uppercase">Bienvenue !</h1>
             <?php
             if (isset ($error)){
-                        
                 echo '<p class= "text-danger">'.'<strong>'.$error.'<strong>'.'</p>';
             }
             ?>

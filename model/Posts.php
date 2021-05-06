@@ -4,26 +4,34 @@ require_once 'Database.php';
 
 class Post extends Database { 
 
-    public function get_posts($type)
+    public function get_posts($type = null)
     {
         $db = new Database();
-        $return = $db->select(
-            array(
-                $this->postid, 
-                $this->postname, 
-                $this->postdesc, 
-                $this->postpicture, 
-                $this->postdate,
-                $this->chapo, 
-                $this->postupdate, 
-                $this->postuser 
-            ), 
-            array(
-                $this->poststable
-            ), 
-            array(
-                $this->poststatut=>$type
-            ));
+        $return = array();
+        $fields = array(
+            $this->postid, 
+            $this->postname, 
+            $this->postdesc, 
+            $this->postpicture, 
+            $this->postdate,
+            $this->chapo, 
+            $this->postupdate, 
+            $this->postuser 
+        );
+        $from = array(
+            $this->poststable
+        );
+
+        if (isset($type)) {
+            $return = $db->select(
+                $fields, 
+                $from, 
+                array(
+                    $this->poststatut=>$type
+                ));
+        } else {
+            $return = $db->select($fields, $from);
+        }
         
         return $return;
     }
@@ -33,9 +41,10 @@ class Post extends Database {
         $db = new Database();
         $return = $db->select(
             array(
-                $this->postid, 
-                $this->postname, 
-                $this->postdesc, 
+                $this->postid,
+                $this->postname,
+                $this->postdesc,
+                $this->chapo,
                 $this->postpicture,
                 $this->postupdate,
                 $this->postuser,
@@ -46,40 +55,41 @@ class Post extends Database {
                 ), array(
                     $this->postid=>$id
                 ));
-        return $return;
+        return current($return);
     }
 
-    public function add_post($type, $postpicture, $postname, $postdesc, $postdate)
+    public function add_post($postpicture, $postname, $postdesc, $chapo)
     {
         $db = new Database();
-        $array = array(
-            $this->postpicture => $postpicture, 
-            $this->postdate => $postdate, 
-            $this->posttype => $type
+        $fields = array(
+            $this->poststatut => 1,
+            $this->postname => $postname,
+            $this->postdesc => $postdesc,
+            $this->chapo => $chapo,
+            $this->postpicture => $postpicture,
+            $this->postdate => date("Y-m-d H:i:s"),
+            $this->postupdate => date("Y-m-d H:i:s"),
+            $this->postuser => 1, 
         );
-        if ($postname != "") {
-            $array[$this->postname]=$postname;
-        }
-        if ($postdesc != "") {
-            $array[$this->postdesc]=$postdesc;
-        }
         $return = $db->insert(
-            $array, $this->poststable
+            $fields, $this->poststable
         );
         return $return;
     }
 
-    public function update_post($id, $postpicture, $postname, $postdesc)
+    public function update_post($id, $postpicture, $postname, $postdesc, $chapo)
     {
         $db = new Database();
-        $array = array();
-        $array[$this->postname]=$postname;
-        $array[$this->postdesc]=$postdesc;
-        if ($postpicture != null) {
-            $array[$this->postpicture]=$postpicture;
-        }
+        $fields = array(
+            $this->postname => $postname,
+            $this->postdesc => $postdesc,
+            $this->chapo => $chapo,
+            $this->postpicture => $postpicture,
+            $this->postupdate => date("Y-m-d H:i:s"),
+        );
+
         $return = $db->update(
-            $array, 
+            $fields, 
             $this->poststable, 
             array(
                 $this->postid => $id

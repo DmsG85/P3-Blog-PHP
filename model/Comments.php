@@ -4,11 +4,11 @@ require_once 'Database.php';
 
 class Comment extends Database { 
 
-   public function get_comments($type=null)
+   public function get_comments($type = null)
     {
         $db = new Database();
         $fields = array(
-            $this->idComment, 
+            $this->commentid, 
             $this->comment, 
             $this->commentDate,
             $this->commentstatut,
@@ -39,57 +39,75 @@ class Comment extends Database {
         $db = new Database();
         $return = $db->select(
             array(
-                $this->idComment, 
+                $this->commentid, 
                 $this->comment, 
-                $this->commentDate,  
-                $this->postdate,
-                $this->postid,
-                $this->iduser
-                
+                $this->commentDate,
+                $this->commentstatut,
+                $this->commentpostuserid,
+                $this->commentpostid,
+                $this->commentuser
             ), 
                 array(
                     $this->commentstable
                 ), array(
-                    $this->postid=>$id
+                    $this->commentid=>$id
                 ));
         return $return;
     }
 
-    public function add_comment($type, $comment, $commentDate, $postdate)
+    public function get_comments_by_postid($postid)
     {
         $db = new Database();
-        $array = array(
-            
-            $this->postdate => $postdate, 
-            $this->posttype => $type
+        $return = $db->select(
+            array(
+                $this->commentid, 
+                $this->comment, 
+                $this->commentDate,
+                $this->commentstatut,
+                $this->commentpostuserid,
+                $this->commentpostid,
+                $this->commentuser
+            ), 
+            array(
+                $this->commentstable
+            ), array(
+                $this->commentpostid => $postid,
+                $this->commentstatut => 2,
+
+            ));
+        return $return;
+    }
+
+    public function add_comment($comment, $post, $user)
+    {
+        $db = new Database();
+        $fields = array(
+            $this->comment => $comment,
+            $this->commentDate => date("Y-m-d H:i:s"),
+            $this->commentstatut => 1,
+            $this->commentpostuserid => $post[$this->postuser],
+            $this->commentpostid => $post[$this->postid],
+            $this->commentuser => $user[$this->iduser],
         );
-        if ($comment != "") {
-            $array[$this->comment]=$comment;
-        }
-        if ($commentDate != "") {
-            $array[$this->commentDate]=$commentDate;
-        }
+
         $return = $db->insert(
-            $array, $this->commentstable
+            $fields, $this->commentstable
         );
         return $return;
     }
 
-    public function update_comment($id, $comment, $commentDate)
+    public function enable_comment($id)
     {
         $db = new Database();
-        $array = array();
-        $array[$this->comment]=$comment;
-        $array[$this->commentDate]=$commentDate;
-        if ($postpicture != null) {
-            $array[$this->postpicture]=$postpicture;
-        }
+
         $return = $db->update(
-            $array, 
+            array($this->commentstatut => 2), 
             $this->commentstable, 
             array(
-                $this->postid=> $id
-            ));
+                $this->commentid => $id
+            )
+        );
+
         return $return;
     }
 
@@ -99,9 +117,9 @@ class Comment extends Database {
         $return = $db->delete(
             $this->commentstable, 
             array(
-                $this->postid=> $id
+                $this->commentid=> $id
             ));
+
         return $return;
     }
-
 }

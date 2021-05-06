@@ -14,6 +14,7 @@
                 <th>Id</th>
                 <th>Contenu</th>
                 <th>Date de création</th>
+                <th>Status</th>
                 <th>Auteur</th>
                 <th>PostId</th>
                 <th>Opérations</th>
@@ -23,16 +24,17 @@
             <?php foreach ($commentsView as $comment){ ?>
            
               <tr>
-                <td><?php echo $comment[0]["idComment"]; ?></td>
-                <td><?php echo $comment[0]["comment"]; ?></td>
-                <td><?php echo $comment[0]["commentDate"]; ?></td>
-                <td></td>
-                <td></td>
+                <td><?php echo $comment["idComment"]; ?></td>
+                <td><?php echo $comment["comment"]; ?></td>
+                <td><?php echo $comment["commentDate"]; ?></td>
+                <td><?php echo $comment["statut"]; ?></td>
+                <td><?php echo $comment["User_idUser"]; ?></td>
+                <td><?php echo $comment["Post_idPost"]; ?></td>
                 <td>
-					<a class="btn btn-success operation" href="admin/enableComment/">
+					<a class="btn btn-success operation" href="<?php echo $this->rewritebase."admin/commentEnable/".$comment["idComment"];?>">
 						<i class="fas fa-check"></i>
 					</a>
-                	<a class="btn btn-danger operation" href="admin/deleteComment/" onclick="return confirm('Cette action supprimera ce commentaire de façon permanente. Êtes vous sûr ?')">
+                	<a class="btn btn-danger operation" href="<?php echo $this->rewritebase."admin/commentDelete/".$comment["idComment"];?>" onclick="return confirm('Cette action supprimera ce commentaire de façon permanente. Êtes vous sûr ?')">
                 		<i class="fas fa-trash-alt"></i>
                 	</a>
 

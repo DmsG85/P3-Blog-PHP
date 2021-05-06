@@ -25,16 +25,26 @@
                             Contactez-moi
                             </a>
                         </li>
+                        <?php if ($this->connectedUser): ?>
+                            <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="<?php echo $this->rewritebase;?>logout">
+                            Deconnexion
+                            </a>
+                        </li>
+                        <?php else: ?>  
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="<?php echo $this->rewritebase;?>login">
                             Connexion
                             </a>
                         </li>
+                        <?php endif ?>
+                        <?php if ($this->userIsAdmin): ?>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="<?php echo $this->rewritebase;?>adminView" target="_blank">
+                            <a class="nav-link js-scroll-trigger" href="<?php echo $this->rewritebase;?>admin/postList" target="_blank">
                             Dashboard
                             </a>
                         </li>
+                        <?php endif ?>
                     </ul>
                 </div>
             </div>

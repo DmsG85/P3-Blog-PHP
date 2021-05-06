@@ -20,19 +20,19 @@ abstract class Config {
     protected $postpicture = "picture";
     protected $postdate = "dateCreation";
     protected $postupdate = "dateUpdate";
-    // Users
     protected $postuser = "User_idUser";
+    // Users
+    protected $userstable = "user";
+    protected $iduser = "idUser";
+    protected $pseudo = "username";
     protected $email = "email";
     protected $userpassword = "password";
     protected $userStatut = "userStatut";
-    protected $userDate = "userDate";
-    protected $userstable = "user";
-    protected $iduser = "idUser";
+    protected $userDate = "dateCreation";
     protected $cpassword = "cpassword";
-    protected $pseudo = "pseudo";
     // Comment 
     protected $commentstable = "comment";
-    protected $idComment = "idComment";
+    protected $commentid = "idComment";
     protected $comment = "comment";
     protected $commentDate = "commentDate";
     protected $commentstatut = "statut";

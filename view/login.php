@@ -25,11 +25,8 @@
         <div class="mx-auto text-center">
             <h1 class="mx-auto mb-5 text-uppercase">Bienvenue !</h1>
             <?php
-             
-            if (isset ($error)){
-                        
+            if (isset ($error)){ 
                 echo '<p class= "text-danger">'.'<strong>'.$error.'<strong>'.'</p>';
-                
             }
             ?>
             

@@ -94,21 +94,16 @@
 
                         <?php
                             if (isset ($error)){
-                                        
                                 echo '<p class= "text-danger">'.'<strong>'.$error.'<strong>'.'</p>';
                             }
                         ?>
-                        <form method="POST"  class="form-inline d-flex flex-column">
 
+                        <form method="POST" action="<?php echo $this->rewritebase.'contactme';?>" class="form-inline d-flex flex-column">
                             <input type="text" name="name" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-4" id="contactName" placeholder="Votre nom" required/>
-                
                             <input type="email" name="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-4" id="contactEmail" placeholder="Votre adresse email" required/>  
-
                             <input type="text" name="subject" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-4" id="contactSubject" placeholder="Objet" required/>
-
                             <textarea name="message" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-4" id="contactMessage" placeholder="Votre message" required></textarea>
-                            
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" value="submit" class="btn btn-primary">
                                 Envoyer
                             </button>
                         </form>
