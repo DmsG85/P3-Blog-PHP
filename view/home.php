@@ -67,7 +67,7 @@
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-right">
                                     <h4 class="text-white" style="text-align:left">Et une autre pour approfondir.</h4>
-                                    <p class="mb-0 text-white-50"style="text-align:left">J'ai commencée ma formation chez Openclassrooms en novembre 2020...
+                                    <p class="mb-0 text-white-50" style="text-align:left">J'ai commencée ma formation chez Openclassrooms en novembre 2020...
 
                                     </p>
                                     <hr class="d-none d-lg-block mb-0 mr-0" />
@@ -155,6 +155,3 @@
             </div>
             
         </section>
-       
-        
-        

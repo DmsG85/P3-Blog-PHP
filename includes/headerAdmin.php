@@ -19,13 +19,7 @@
                             <i class="fas fa-user fa-fw"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                Settings
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                Activity Log
-                            </a>
-                            <div class="dropdown-divider"></div>
+                           
                             <a class="dropdown-item" href="<?php echo $this->rewritebase;?>/logout"  onclick="return confirm('Cette action vous déconnectera. Êtes vous sûr ?')">
                                 Logout
                             </a>
