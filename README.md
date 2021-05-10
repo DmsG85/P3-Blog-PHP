@@ -6,3 +6,5 @@ Codacy Analyzer
 
 Prérquis :
 * PHP 7, MySQL, Apache, Composer, Bootstrap
+
+
