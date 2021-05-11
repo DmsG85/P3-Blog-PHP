@@ -68,7 +68,7 @@ class Controller
     {
         if (!isset($_SESSION['user']) || $_SESSION["isAdmin"] !== true) {
             header("Location: ".$this->rewritebase);
-            exit();
+            die();
         }
         if (!array_key_exists(3,$url)) {
             $this->adminView($url);
@@ -120,7 +120,7 @@ class Controller
         }
 
         header("Location: ".$this->rewritebase."postView\\".$url[3]);
-        exit();
+        die();
     }
 
     protected function sendContactMe($url)
@@ -130,7 +130,7 @@ class Controller
         // mail('dmsgaelle@gmail.com','[BLOG] CONTACT - '.$_POST['subject'], $baseMessage.$_POST['message']);
 
         header("Location: ".$this->rewritebase);
-        exit();
+        die();
     }
 
     protected function home($url)
@@ -207,7 +207,7 @@ class Controller
             $error = $connexion->inscription();
             if (is_numeric($error)) {
                 header('Location: '.$this->rewritebase.'login');
-                exit();
+                die();
             }
         }
         $title = "Inscription";
@@ -291,7 +291,7 @@ class Controller
                 $error = "Une erreur est survenue lors de la sauvegarde du Post.";
             } else {
                 header("Location: ".$this->rewritebase."\admin\postList");
-                exit();
+                die();
             }
         }
 
@@ -323,7 +323,7 @@ class Controller
         }
 
         header("Location: ".$this->rewritebase."\admin\commentList");
-        exit();
+        die();
     }
 
     protected function adminCommentDelete($url)
@@ -335,7 +335,7 @@ class Controller
         }
 
         header("Location: ".$this->rewritebase."\admin\commentList");
-        exit();
+        die();
     }
 
     protected function adminPostDelete($url)
@@ -347,7 +347,7 @@ class Controller
         }
 
         header("Location: ".$this->rewritebase."\admin\postList");
-        exit();
+        die();
     }
 }
 
