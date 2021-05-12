@@ -26,7 +26,8 @@ class Comment extends Database {
                 $from, 
                 array(
                     $this->commentstatut=>$type
-                ));
+                )
+            );
         } else {
             $return = $db->select($fields, $from);
         }
@@ -47,11 +48,12 @@ class Comment extends Database {
                 $this->commentpostid,
                 $this->commentuser
             ), 
-                array(
-                    $this->commentstable
-                ), array(
-                    $this->commentid=>$id
-                ));
+            array(
+                $this->commentstable
+            ), array(
+                $this->commentid=>$id
+            )
+        );
         return $return;
     }
 
@@ -74,7 +76,8 @@ class Comment extends Database {
                 $this->commentpostid => $postid,
                 $this->commentstatut => 2,
 
-            ));
+            )
+        );
         return $return;
     }
 
@@ -118,7 +121,8 @@ class Comment extends Database {
             $this->commentstable, 
             array(
                 $this->commentid=> $id
-            ));
+            )
+        );
 
         return $return;
     }

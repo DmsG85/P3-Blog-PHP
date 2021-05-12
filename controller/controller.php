@@ -1,9 +1,9 @@
 <?php
 
-require_once './model/Posts.php';
-require_once 'connexionController.php';
+require_once './model/Post.php';
+require_once 'ConnexionController.php';
 require_once './model/Users.php';
-require_once './model/Comments.php'; 
+require_once './model/Comment.php'; 
 
 /**
 * Controller
@@ -28,22 +28,22 @@ class Controller
         } else {
             switch ($url[2]) {
                 case '' :
-                    $this->home($url,$qs);
+                    $this->home($url, $qs);
                     break;
                 case 'accueil' :
-                    $this->home($url,$qs);
+                    $this->home($url, $qs);
                     break;
                 case 'admin' :
-                    $this->admin($url,$qs);
+                    $this->admin($url, $qs);
                     break;
                 case 'login' :
-                     $this->login($url,$qs);
+                     $this->login($url, $qs);
                     break;
                 case 'logout' :
-                    $this->logout($url,$qs);
+                    $this->logout($url, $qs);
                     break;
                 case 'register' :
-                    $this->register($url,$qs);
+                    $this->register($url, $qs);
                     break;
                 case 'listPosts' :
                     $this->listPosts($url);
@@ -70,7 +70,7 @@ class Controller
             header("Location: ".$this->rewritebase);
             die();
         }
-        if (!array_key_exists(3,$url)) {
+        if (!array_key_exists(3, $url)) {
             $this->adminView($url);
         } else {
             switch ($url[3]) { 
@@ -127,7 +127,6 @@ class Controller
     {
         $baseMessage = "Message de ".$_POST['name']." (".$_POST['email'].")\n\n";
         var_dump('dmsgaelle@gmail.com','[BLOG] CONTACT - '.$_POST['subject'], $baseMessage.$_POST['message']);
-        
 
         header("Location: ".$this->rewritebase);
         die();
@@ -150,6 +149,7 @@ class Controller
         $title = "Page introuvable";
         $description = "Page introuvable";
         $view = '404';
+
         require_once 'includes/header.php';
         require_once 'view/'.$view.'.php';
         require_once 'includes/footer.php';
@@ -157,7 +157,7 @@ class Controller
 
     protected function login()
     {
-        $connexion= new connexionController();
+        $connexion= new ConnexionController();
         $login = $connexion->loginuser();
         $title = "Connexion";
         if (is_bool($login) && $login == true) {
@@ -167,7 +167,6 @@ class Controller
         $description = "Connexion";
         $view = 'login';
 
-        
         require_once 'includes/header.php';
         require_once 'view/'.$view.'.php';
         require_once 'includes/footer.php';
@@ -175,7 +174,7 @@ class Controller
 
     protected function logout()
     {
-        $connexion= new connexionController();
+        $connexion= new ConnexionController();
         $login = $connexion->logoutuser();
 
         header('Location: '.$this->rewritebase);
@@ -201,7 +200,7 @@ class Controller
     protected function register()
     {   
         if (isset($_POST["register"])) {
-            $connexion= new connexionController();
+            $connexion = new ConnexionController();
             $error = $connexion->inscription();
             if (is_numeric($error)) {
                 header('Location: '.$this->rewritebase.'login');
@@ -217,7 +216,7 @@ class Controller
         require_once 'includes/footer.php';
     }
 
-    protected function PostView($url)
+    protected function postView($url)
     {
         $title = "Article";
         $description = "Article";
@@ -252,12 +251,9 @@ class Controller
             $posts[$key]['user'] = $userDB->get_user($post['User_idUser']);
         }
 
-       
-           
         require_once 'includes/headerAdmin.php';
         require_once 'view/admin/'.$view.'.php';
         require_once 'includes/footerAdmin.php';
-        
     }
 
     protected function adminPostEdit($url)
@@ -298,7 +294,6 @@ class Controller
         $comment = new Comment;
         $commentsView = $comment->get_comments();
 
-        
         require_once 'includes/headerAdmin.php';
         require_once 'view/admin/'.$view.'.php';
         require_once 'includes/footerAdmin.php';

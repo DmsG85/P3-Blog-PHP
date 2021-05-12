@@ -7,7 +7,7 @@ class Users extends Database{
     public function verifemail($email){
         $db = new Database();
         
-         $email= $this->testinput($email);
+        $email = $this->testinput($email);
         
         $return = $db->select(
             array(
@@ -52,9 +52,9 @@ class Users extends Database{
 
     public function testinput($data){
         
-        $data=trim ($data);
-        $data=addslashes ($data);
-        $data=htmlspecialchars ($data);
+        $data = trim($data);
+        $data = addslashes($data);
+        $data = htmlspecialchars($data);
         return $data;
     }
 
@@ -69,10 +69,9 @@ class Users extends Database{
                 $this->userDate=>date("Y-m-d H:i:s"), 
                 $this->userStatut=>1
             ),
-                $this->userstable
-            );
+            $this->userstable
+        );
 
-            
         if ($return == null){
             return false;
         }

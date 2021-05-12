@@ -21,6 +21,9 @@ class Post extends Database {
         $from = array(
             $this->poststable
         );
+        $orderBy = array(
+            $this->postdate
+        );
 
         if (isset($type)) {
             $return = $db->select(
@@ -28,7 +31,10 @@ class Post extends Database {
                 $from, 
                 array(
                     $this->poststatut=>$type
-                ));
+                ),
+                $orderBy,
+                "DESC"
+            );
         } else {
             $return = $db->select($fields, $from);
         }
@@ -50,11 +56,12 @@ class Post extends Database {
                 $this->postuser,
                 $this->postdate
             ), 
-                array(
-                    $this->poststable
-                ), array(
-                    $this->postid=>$id
-                ));
+            array(
+                $this->poststable
+            ), array(
+                $this->postid=>$id
+            )
+        );
         return current($return);
     }
 
@@ -93,7 +100,8 @@ class Post extends Database {
             $this->poststable, 
             array(
                 $this->postid => $id
-            ));
+            )
+        );
         return $return;
     }
 
@@ -104,7 +112,8 @@ class Post extends Database {
             $this->poststable, 
             array(
                 $this->postid => $id
-            ));
+            )
+        );
         return $return;
     }
 
