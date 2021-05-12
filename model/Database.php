@@ -73,7 +73,7 @@ class Database extends Config
 		$sql .= " LIMIT ".$limit;
 		
 		$result = self::$db->query($sql);
-		// var_dump($sql);
+		
 		return ($result == null || $result == "") ? null : $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -99,7 +99,7 @@ class Database extends Config
 		}
 		$sql .= ")";
 		$result = self::$db->query($sql);
-		// var_dump($sql);die;
+		
 		return ($result == null || $result == "") ? null : self::$db->lastInsertId();
 	}
 	

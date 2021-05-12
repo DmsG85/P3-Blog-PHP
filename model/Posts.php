@@ -62,14 +62,14 @@ class Post extends Database {
     {
         $db = new Database();
         $fields = array(
-            $this->poststatut => 1,
+            $this->poststatut => 2,
             $this->postname => $postname,
             $this->postdesc => $postdesc,
             $this->chapo => $chapo,
             $this->postpicture => $postpicture,
             $this->postdate => date("Y-m-d H:i:s"),
             $this->postupdate => date("Y-m-d H:i:s"),
-            $this->postuser => 1, 
+            $this->postuser => 2, 
         );
         $return = $db->insert(
             $fields, $this->poststable

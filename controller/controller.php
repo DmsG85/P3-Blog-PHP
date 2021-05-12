@@ -1,7 +1,7 @@
 <?php
 
 require_once './model/Posts.php';
-require_once 'controllerConnexion.php';
+require_once 'connexionController.php';
 require_once './model/Users.php';
 require_once './model/Comments.php'; 
 
@@ -22,7 +22,7 @@ class Controller
         $qs = explode('&', $qs);
         $this->userIsAdmin = isset($_SESSION['isAdmin']) ? $_SESSION['isAdmin'] : false;
         $this->connectedUser = isset($_SESSION['user']) ? $_SESSION['user'] : null;
-        // var_dump($url);
+        
         if (count($url) < 3) {
             $this->home($url);
         } else {
@@ -127,7 +127,7 @@ class Controller
     {
         $baseMessage = "Message de ".$_POST['name']." (".$_POST['email'].")\n\n";
         var_dump('dmsgaelle@gmail.com','[BLOG] CONTACT - '.$_POST['subject'], $baseMessage.$_POST['message']);
-        // mail('dmsgaelle@gmail.com','[BLOG] CONTACT - '.$_POST['subject'], $baseMessage.$_POST['message']);
+        
 
         header("Location: ".$this->rewritebase);
         die();
@@ -135,13 +135,11 @@ class Controller
 
     protected function home($url)
     {
-        // $connexion= new controllerConnexion();
+        
         $title = "Gaëlle Dumas";
         $description = "Accueil";
         $view = 'home';
-        // $value=$connexion->contact();
-        // $post = new Post;
-        // $actus = $post->get_posts(1);
+        
         require_once 'includes/header.php';
         require_once 'view/'.$view.'.php';
         require_once 'includes/footer.php';
@@ -159,7 +157,7 @@ class Controller
 
     protected function login()
     {
-        $connexion= new controllerConnexion();
+        $connexion= new connexionController();
         $login = $connexion->loginuser();
         $title = "Connexion";
         if (is_bool($login) && $login == true) {
@@ -169,7 +167,7 @@ class Controller
         $description = "Connexion";
         $view = 'login';
 
-        // var_dump ($_SESSION["login"]);
+        
         require_once 'includes/header.php';
         require_once 'view/'.$view.'.php';
         require_once 'includes/footer.php';
@@ -177,7 +175,7 @@ class Controller
 
     protected function logout()
     {
-        $connexion= new controllerConnexion();
+        $connexion= new connexionController();
         $login = $connexion->logoutuser();
 
         header('Location: '.$this->rewritebase);
@@ -195,7 +193,7 @@ class Controller
         foreach ($actus as $key => $actu) {
             $actus[$key]['user'] = $userDB->get_user($actu['User_idUser']);
         }
-        // var_dump($post);
+        
         require_once 'includes/header.php';
         require_once 'view/'.$view.'.php';
         require_once 'includes/footer.php';
@@ -203,7 +201,7 @@ class Controller
     protected function register()
     {   
         if (isset($_POST["register"])) {
-            $connexion= new controllerConnexion();
+            $connexion= new connexionController();
             $error = $connexion->inscription();
             if (is_numeric($error)) {
                 header('Location: '.$this->rewritebase.'login');
@@ -213,7 +211,7 @@ class Controller
         $title = "Inscription";
         $description = "Inscription";
         $view = 'register';
-        // var_dump(isset($error) ?? $error, $_POST["register"]);
+        
         require_once 'includes/header.php';
         require_once 'view/'.$view.'.php';
         require_once 'includes/footer.php';
@@ -254,15 +252,7 @@ class Controller
             $posts[$key]['user'] = $userDB->get_user($post['User_idUser']);
         }
 
-        /*
-        $commentDB = new Comment();
-        $userDB = new User();
-
-        foreach ($return as $post) {
-            $post['comments'] = $commentDB->get_comment_by_postid($post[$commentDB->postid]);
-            $post['user'] = $userDB->getUser($post[$userDB->postuser]);
-        }
-        */
+       
            
         require_once 'includes/headerAdmin.php';
         require_once 'view/admin/'.$view.'.php';
@@ -308,7 +298,7 @@ class Controller
         $comment = new Comment;
         $commentsView = $comment->get_comments();
 
-        // var_dump($commentsView);die;
+        
         require_once 'includes/headerAdmin.php';
         require_once 'view/admin/'.$view.'.php';
         require_once 'includes/footerAdmin.php';

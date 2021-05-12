@@ -6,9 +6,9 @@ class Users extends Database{
     
     public function verifemail($email){
         $db = new Database();
-        //  var_dump($email);
+        
          $email= $this->testinput($email);
-        //  var_dump($email);
+        
         $return = $db->select(
             array(
                 $this->userpassword, 
@@ -72,7 +72,7 @@ class Users extends Database{
                 $this->userstable
             );
 
-            // var_dump($return);
+            
         if ($return == null){
             return false;
         }

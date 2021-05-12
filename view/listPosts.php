@@ -44,7 +44,7 @@
                                 <a class="btn btn-primary " href="<?php echo $this->rewritebase;?>postView/<?php echo $value['idPost'];?>">
                                 Lire la suite...
                                 </a>
-                                <!-- <span class="btn btn-outline-secondary mx-1 my-1">woman </span>-->
+                                
                             </div>
                         </div>
                                     

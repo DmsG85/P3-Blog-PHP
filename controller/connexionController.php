@@ -1,18 +1,16 @@
 <?php
 
-class controllerConnexion{
+class connexionController{
 
     public function loginuser()
     {
         if(isset($_POST["connexion"])&& $_POST["connexion"] === "ok") {
             $email = $_POST["email"];
             $password = $_POST["password"];
-            // var_dump($email);
-            // var_dump($password);
+            
             $user=new Users();
             $verif=$user->verifemail($email);
-            // $verif=$user->verifstatut($userStatut);
-            // var_dump($verif);
+            
 
             if ($verif != null){
                 if ($password===$verif["password"]){
@@ -51,10 +49,6 @@ class controllerConnexion{
             $email = $_POST["email"];
             $password = $_POST["password"];
             $cpassword = $_POST["cpassword"];
-            // var_dump($email);
-            // var_dump($password);
-            // var_dump($pseudo);
-            // var_dump($cpassword);
             
             if($password === $cpassword){
                 $user=new Users();
