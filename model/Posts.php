@@ -62,7 +62,7 @@ class Post extends Database {
     {
         $db = new Database();
         $fields = array(
-            $this->poststatut => 1,
+            $this->poststatut => 2,
             $this->postname => $postname,
             $this->postdesc => $postdesc,
             $this->chapo => $chapo,
